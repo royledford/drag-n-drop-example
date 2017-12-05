@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600,700,900|Sintony:400,700");
+body {
+  font-family: "Sintony", sans-serif;
+  line-height: 1.4; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600; }
+
+a:link {
+  color: white;
+  text-decoration: none; }
+
+a:visited {
+  color: white; }
+
+a:hover {
+  color: #83470f;
+  font-weight: bold; }
+
+a:active {
+  color: white; }
+
+.ratio1-1:before {
+  padding-top: 100%; }
+
+.ratio2-1:before {
+  padding-top: 50%; }
+
+.ratio4-3:before {
+  padding-top: 75%; }
+
+.ratio16-9:before {
+  padding-top: 56.25%; }

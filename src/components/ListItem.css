@@ -1,0 +1,11 @@
+.listitem {
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+
+  background-color: rgb(214, 137, 4);
+  border: 1px solid rgb(255, 185, 79);
+
+  cursor: move;
+}
