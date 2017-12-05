@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import List from './List'
+import ListDOM from './ListDOM'
 import './Dnd.css'
 
 export default class Dnd extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: ['val 1', 'val 2', 'val 3', 'val 4', 'val 5'],
+      data: ['House Arryn', 'House Frey', 'House Greyjoy', 'House Lannister', 'House Stark', 'House Targaryen'],
     }
   }
 
@@ -14,7 +14,18 @@ export default class Dnd extends Component {
     const { data } = this.state
     return (
       <div className="dnd">
-        <List data={data} />
+        <div>
+          <h4>DOM Manipulation (bad)</h4>
+          <ListDOM data={data} />
+        </div>
+        <div>
+          <h4>DOM Manipulation (bad)</h4>
+          <ListDOM data={data} />
+        </div>
+        <div>
+          <h4>DOM Manipulation (bad)</h4>
+          <ListDOM data={data} />
+        </div>
       </div>
     )
   }

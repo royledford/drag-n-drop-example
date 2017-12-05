@@ -1,5 +1,12 @@
 :root {
+  --white: #fff;
+  --orange: #f4b261;
+  --orange-light: #fad0a3;
+  --orange-medium: #b6782c;
+  --orange-dark: #8d4e00;
 
---white: #fff;
-
+  --red: #f1685f;
+  --red-light: #f0928d;
+  --red-medium: #c94039;
+  --red-dark: #a1160f;
 }

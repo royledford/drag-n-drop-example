@@ -4,7 +4,7 @@
   list-style-type: none;
   padding: 10px;
   margin: 0 auto;
-  background-color: rgb(255, 185, 79);
+  background-color: var(--orange);
 }
 
 li.list-placeholder {
@@ -12,7 +12,7 @@ li.list-placeholder {
   font-size: 16px;
   line-height: 40px;
   text-align: center;
-  background: rgb(252, 210, 156);
+  background: var(--orange-light);
 }
 li.list-placeholder:before {
   content: 'Move here';

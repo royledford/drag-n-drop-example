@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ListItem from './ListItem'
+import ListItemDOM from './ListItemDOM'
 import './List.css'
 
 export default class List extends Component {
@@ -71,7 +71,7 @@ export default class List extends Component {
   render() {
     const { data } = this.props
     const listItems = data.map((listItem, i) => (
-      <ListItem key={listItem} dataId={i} text={listItem} dragStart={this.dragStart} dragEnd={this.dragEnd} />
+      <ListItemDOM key={listItem} dataId={i} text={listItem} dragStart={this.dragStart} dragEnd={this.dragEnd} />
     ))
     return (
       <ul className="list" onDragOver={this.dragOver}>
