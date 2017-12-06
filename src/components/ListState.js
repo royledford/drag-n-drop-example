@@ -5,7 +5,12 @@ import './List.css'
 
 export default class List extends Component {
   static propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        sortIndex: PropTypes.number.isRequired,
+      })
+    ).isRequired,
     dataChanged: PropTypes.func.isRequired,
   }
   static defaultProps = {
@@ -19,68 +24,59 @@ export default class List extends Component {
       beingDragged: undefined,
     }
 
-    this.sort = this.sort.bind(this)
+    this.updateState = this.updateState.bind(this)
     this.dragOver = this.dragOver.bind(this)
     this.dragEnd = this.dragEnd.bind(this)
     this.dragStart = this.dragStart.bind(this)
   }
 
-  sort(houses, draggedOverId) {
-    // const data = Object.assign({}, this.props.data)
-    // const data = Object.assign([], this.props.data)
-    // data.houses = houses
+  updateState(houses, draggedOverId) {
     this.setState({ draggedOverId: draggedOverId, beingDragged: draggedOverId })
 
-    // update the osrtIndex to show the new order
+    // update the sortIndex to show the new order
     houses.forEach((house, i) => {
       house.sortIndex = i
     })
+
+    // Tell the parent there is a new order
     this.props.dataChanged(houses)
-    // this.props.dataChanged(houses)
   }
 
   dragStart(e) {
+    // Update our state with the item that is being dragged
     this.setState({ beingDragged: Number(e.target.dataset.id) })
-    // this.dragged = Number(e.currentTarget.dataset.id)
     e.dataTransfer.effectAllowed = 'move'
-
-    // for firefox
-    e.dataTransfer.setData('text/html', e.currentTarget)
   }
 
   dragOver(e) {
     e.preventDefault()
-    if (e.target.className === 'list') return
+    if (e.target.className === 'list') return //ignore dragging of the list container
 
-    // const over = e.currentTarget
     const over = e.target
-    // let from = isFinite(dragging) ? dragging : this.state.beingDragged
     let from = this.state.beingDragged
     let to = Number(over.dataset.id)
-    // debugger
     this.setState({ draggedOverId: to })
-    // if (e.clientY - over.offsetTop > over.offsetHeight / 2) to++
-    // if (from < to) to--
 
-    // Make a copy of the props data so we don't mutate
-    let items = Object.assign([], this.props.data)
-    // if (this.state.draggedOverId !== to) {
+    // reorder the array with the current position
+    let items = this.props.data
     items.splice(to, 0, items.splice(from, 1)[0])
-    this.sort(items, to)
-    // }
+
+    this.updateState(items, to)
   }
 
   dragEnd() {
-    // const data = this.props.data
-    // const updateData = data.map((house, i) => (house.sortIndex = i))
-    this.sort(this.props.data, undefined)
+    // We still need to update to clear the extra class
+    // added to items while dragging.
+    this.updateState(this.props.data, undefined)
   }
 
   render() {
     const { data } = this.props
     const { draggedOverId } = this.state
+
     const listItems = data.map((house, i) => {
-      let dragClass = i === draggedOverId ? 'liststate-dragging' : ''
+      // add highlight to items that are dragged over.
+      let dragClass = i === draggedOverId ? 'listitem-dragging' : ''
 
       return (
         <ListItem
@@ -93,6 +89,7 @@ export default class List extends Component {
         />
       )
     })
+
     return (
       <ul className="list" onDragOver={this.dragOver}>
         {listItems}
