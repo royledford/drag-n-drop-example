@@ -10,40 +10,42 @@ export default class Dnd extends Component {
       dataDOM: ['Arryn', 'Frey', 'Greyjoy', 'Lannister', 'Stark', 'Targaryen'],
       dataState: [
         {
+          id: 0,
           name: 'Arryn',
           sortIndex: 0,
         },
         {
+          id: 1,
           name: 'Frey',
           sortIndex: 1,
         },
         {
+          id: 2,
           name: 'Greyjoy',
           sortIndex: 2,
         },
         {
+          id: 3,
           name: 'Lannister',
           sortIndex: 3,
         },
         {
+          id: 4,
           name: 'Stark',
           sortIndex: 4,
         },
         {
+          id: 5,
           name: 'Targaryen',
           sortIndex: 5,
         },
       ],
     }
 
-    this.handleDataChangedDOM = this.handleDataChangedDOM.bind(this)
-    this.handleDataChangedState = this.handleDataChangedState.bind(this)
+    this.handleDataChanged = this.handleDataChanged.bind(this)
   }
 
-  handleDataChangedDOM(data) {
-    this.setState({ dataDOM: data })
-  }
-  handleDataChangedState(data) {
+  handleDataChanged(data) {
     this.setState({ dataState: data })
   }
 
@@ -51,22 +53,19 @@ export default class Dnd extends Component {
     const { dataDOM, dataState } = this.state
     return (
       <div className="dnd">
-        <div className="dnd-column">
+        <div>
           <h4>DOM Manipulation (bad)</h4>
           {/* <ListDOM data={dataDOM} dataChanged={this.handleDataChangedDOM} /> */}
-          <ListDOM data={dataState} dataChanged={this.handleDataChangedDOM} />
-          <br />
-          <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
+          <ListDOM data={dataState} dataChanged={this.handleDataChanged} />
         </div>
         <div className="dnd-column">
           <h4>State Manipulation (good)</h4>
-          <ListState data={dataState} dataChanged={this.handleDataChangedState} />
-          <br />
-          <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
+          <ListState data={dataState} dataChanged={this.handleDataChanged} />
         </div>
         <div>
-          <h4>DOM Manipulation (bad)</h4>
-          <ListDOM data={dataDOM} dataChanged={this.handleDataChangedDOM} />
+          <h4>State for all Lists</h4>
+
+          <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
         </div>
       </div>
     )

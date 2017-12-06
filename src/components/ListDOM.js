@@ -82,7 +82,7 @@ export default class List extends Component {
   render() {
     const { data } = this.props
     const listItems = data.map((house, i) => (
-      <ListItem key={house.sortIndex} dataId={i} text={house.name} dragStart={this.dragStart} dragEnd={this.dragEnd} />
+      <ListItem key={house.id} dataId={i} text={house.name} dragStart={this.dragStart} dragEnd={this.dragEnd} />
     ))
     return (
       <ul className="list" onDragOver={this.dragOver}>

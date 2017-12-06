@@ -80,7 +80,7 @@ export default class List extends Component {
 
       return (
         <ListItem
-          key={i}
+          key={house.id}
           dataId={i}
           className={dragClass}
           text={house.name}
