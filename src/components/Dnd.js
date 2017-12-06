@@ -53,9 +53,10 @@ export default class Dnd extends Component {
       <div className="dnd">
         <div className="dnd-column">
           <h4>DOM Manipulation (bad)</h4>
-          <ListDOM data={dataDOM} dataChanged={this.handleDataChangedDOM} />
+          {/* <ListDOM data={dataDOM} dataChanged={this.handleDataChangedDOM} /> */}
+          <ListDOM data={dataState} dataChanged={this.handleDataChangedDOM} />
           <br />
-          <pre>{JSON.stringify(this.state.dataDOM, 0, 2)}</pre>
+          <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
         </div>
         <div className="dnd-column">
           <h4>State Manipulation (good)</h4>
