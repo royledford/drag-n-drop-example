@@ -5,10 +5,11 @@ import './List.css'
 
 export default class List extends Component {
   static propTypes = {
-    list: PropTypes.array.isRequired,
+    data: PropTypes.array.isRequired,
+    dataChanged: PropTypes.func.isRequired,
   }
   static defaultProps = {
-    list: [],
+    data: [],
   }
 
   constructor(props) {
@@ -65,7 +66,8 @@ export default class List extends Component {
     if (from < to) to--
     if (this.nodePlacement === 'after') to++
     data.splice(to, 0, data.splice(from, 1)[0])
-    this.setState({ data: data })
+    this.props.dataChanged(data)
+    // this.setState({ data: data })
   }
 
   render() {

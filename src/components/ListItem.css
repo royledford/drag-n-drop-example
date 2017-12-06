@@ -10,3 +10,8 @@
 
   cursor: move;
 }
+
+/* The following are used for the state mainpulation */
+.liststate-dragging {
+  background-color: var(--orange-dark);
+}

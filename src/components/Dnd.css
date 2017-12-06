@@ -13,3 +13,13 @@
 .dnd h4 {
   margin-bottom: 10px;
 }
+
+.dnd-column {
+  display: flex;
+  flex-direction: column;
+}
+
+pre {
+  font-size: 12px;
+  background-color: var(--orange);
+}
