@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ListItemState from './ListItemState'
+import ListItem from './ListItem'
 import './List.css'
 
 export default class List extends Component {
@@ -58,7 +58,6 @@ export default class List extends Component {
     let from = this.state.beingDragged
     let to = Number(over.dataset.id)
     // debugger
-    console.log(`from: ${from}, to: (${to}) ${over.innerHTML}`)
     this.setState({ draggedOverId: to })
     // if (e.clientY - over.offsetTop > over.offsetHeight / 2) to++
     // if (from < to) to--
@@ -84,17 +83,16 @@ export default class List extends Component {
       let dragClass = i === draggedOverId ? 'liststate-dragging' : ''
 
       return (
-        <ListItemState
+        <ListItem
           key={i}
           dataId={i}
-          highlightClassname={dragClass}
+          className={dragClass}
           text={house.name}
           dragStart={this.dragStart}
           dragEnd={this.dragEnd}
         />
       )
     })
-    // console.log(listItems)
     return (
       <ul className="list" onDragOver={this.dragOver}>
         {listItems}

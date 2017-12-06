@@ -8,18 +8,18 @@ export default class ListItem extends Component {
     dataId: PropTypes.number.isRequired,
     dragStart: PropTypes.func.isRequired,
     dragEnd: PropTypes.func.isRequired,
-    highlightClassname: PropTypes.string,
+    className: PropTypes.string,
   }
   static defaultProps = {
     text: 'default value',
-    highlightClassname: '',
+    className: '',
   }
 
   render() {
-    const { text, dataId, dragStart, dragEnd, highlightClassname } = this.props
-    const className = highlightClassname === '' ? 'listitem' : `listitem ${highlightClassname}`
+    const { text, dataId, dragStart, dragEnd, className } = this.props
+    const newClassName = className === '' ? 'listitem' : `listitem ${className}`
     return (
-      <li className={className} data-id={dataId} draggable="true" onDragEnd={dragEnd} onDragStart={dragStart}>
+      <li className={newClassName} data-id={dataId} draggable="true" onDragEnd={dragEnd} onDragStart={dragStart}>
         {text}
       </li>
     )
