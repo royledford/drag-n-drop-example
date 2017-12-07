@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ListItem from './ListItem'
 import './List.css'
 
-export default class List extends Component {
+export default class ListDOM extends Component {
   static propTypes = {
     data: PropTypes.arrayOf(
       PropTypes.shape({

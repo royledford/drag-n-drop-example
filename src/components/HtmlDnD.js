@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+
 import ListDOM from './ListDOM'
 import ListState from './ListState'
-import './Dnd.css'
+import ListDnD from './ListDnD'
+import './DnD.css'
 
 export default class Dnd extends Component {
   constructor(props) {
@@ -50,22 +52,24 @@ export default class Dnd extends Component {
   }
 
   render() {
-    const { dataDOM, dataState } = this.state
+    const { dataState } = this.state
     return (
-      <div className="dnd">
-        <div>
-          <h4>DOM Manipulation (bad)</h4>
-          {/* <ListDOM data={dataDOM} dataChanged={this.handleDataChangedDOM} /> */}
-          <ListDOM data={dataState} dataChanged={this.handleDataChanged} />
-        </div>
-        <div className="dnd-column">
-          <h4>State Manipulation (good)</h4>
-          <ListState data={dataState} dataChanged={this.handleDataChanged} />
-        </div>
-        <div>
-          <h4>State for all Lists</h4>
+      <div>
+        <h3 className="dnd-title">Drag and Drop using HTML5 Api and React Components</h3>
+        <div className="dnd">
+          <div>
+            <h4>DOM Manipulation (bad)</h4>
+            <ListDOM data={dataState} dataChanged={this.handleDataChanged} />
+          </div>
+          <div className="dnd-column">
+            <h4>State Manipulation (good)</h4>
+            <ListState data={dataState} dataChanged={this.handleDataChanged} />
+          </div>
 
-          <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
+          <div>
+            <h4>State for all Lists</h4>
+            <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
+          </div>
         </div>
       </div>
     )
