@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 
-import ListDOM from './ListDOM'
-import ListState from './ListState'
-import ListDnD from './ListDnD'
+import HtmlDomList from './HtmlDomList'
+import HtmlStateList from './HtmlStateList'
 import './DnD.css'
 
 export default class Dnd extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dataDOM: ['Arryn', 'Frey', 'Greyjoy', 'Lannister', 'Stark', 'Targaryen'],
       dataState: [
         {
           id: 0,
@@ -59,11 +57,11 @@ export default class Dnd extends Component {
         <div className="dnd">
           <div>
             <h4>DOM Manipulation (bad)</h4>
-            <ListDOM data={dataState} dataChanged={this.handleDataChanged} />
+            <HtmlDomList data={dataState} dataChanged={this.handleDataChanged} />
           </div>
           <div className="dnd-column">
             <h4>State Manipulation (good)</h4>
-            <ListState data={dataState} dataChanged={this.handleDataChanged} />
+            <HtmlStateList data={dataState} dataChanged={this.handleDataChanged} />
           </div>
 
           <div>

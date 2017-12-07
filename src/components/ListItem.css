@@ -11,7 +11,7 @@
   cursor: move;
 }
 
-/* The following are used for the state mainpulation version .
+/* The following is used for the state mainpulation version .
    It is used to highlight the item the cursor is currently over.
 */
 .listitem-dragging {

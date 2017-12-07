@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import ListDOM from './ListDOM'
-import ListState from './ListState'
-import ListDnD from './ListDnD'
+import ReactDnDList from './ReactDnDList'
 import './DnD.css'
 
 export default class ReactDnD extends Component {
@@ -71,7 +69,7 @@ export default class ReactDnD extends Component {
         <div className="dnd">
           <div className="dnd-column">
             <h4>React DnD</h4>
-            <ListDnD data={dataState} moveCard={this.moveCard} />
+            <ReactDnDList data={dataState} moveCard={this.moveCard} />
           </div>
           <div>
             <h4>State for all Lists</h4>

@@ -7,7 +7,7 @@
   background-color: var(--orange);
 }
 
-/* This following are used for the DOM manipulation version */
+/* Thie following are used for the DOM manipulation version */
 li.list-placeholder {
   height: 40px;
   font-size: 16px;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 
-import ListItemDnD from './ListItemDnD'
+import ReactDnDListItem from './ReactDnDListItem'
 import './List.css'
 
 class ListDnD extends Component {
@@ -19,24 +19,11 @@ class ListDnD extends Component {
     data: {},
   }
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { data } = this.props
 
-    const listItems = data.map((house, i) => {
-      return (
-        <ListItemDnD
-          key={house.id}
-          index={i}
-          // className={dragClass}
-          text={house.name}
-          moveCard={this.props.moveCard}
-          // dragEnd={this.dragEnd}
-        />
-      )
+    const listItems = data.map((card, i) => {
+      return <ReactDnDListItem key={card.id} index={i} text={card.name} moveCard={this.props.moveCard} />
     })
 
     return (

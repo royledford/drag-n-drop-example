@@ -50,13 +50,17 @@ export default class ListDOM extends Component {
     const height = this.over.offsetHeight / 2
     const parent = e.target.parentNode
 
+    let beforeElement = {}
+
     if (relY > height) {
       this.nodePlacement = 'after'
-      parent.insertBefore(this.state.placeholder, e.target.nextElementSibling)
+      const beforeElement = e.target.nextElementSibling
     } else if (relY < height) {
       this.nodePlacement = 'before'
-      parent.insertBefore(this.state.placeholder, e.target)
+      const beforeElement = e.target
     }
+
+    parent.insertBefore(this.state.placeholder, e.target.nextElementSibling)
   }
 
   dragEnd() {

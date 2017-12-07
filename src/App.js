@@ -30,7 +30,6 @@ class App extends Component {
     }
 
     let display = <HtmlDnD />
-    // let display = <ReactDnD />
     if (page !== 'HTML5 DnD') display = <ReactDnD />
 
     return (
