@@ -1,8 +1,9 @@
 .listitem {
+  display: flex;
+  justify-content: center;
   height: 40px;
   font-size: 14px;
   line-height: 40px;
-  text-align: center;
 
   color: var(--orange-light);
   background-color: var(--orange-medium);
@@ -11,9 +12,9 @@
   cursor: move;
 }
 
-/* The following is used for the state mainpulation version .
+/* The following is used for the state mainpulation version and react-dnd.
    It is used to highlight the item the cursor is currently over.
 */
-.listitem-dragging {
+.listitem-over {
   background-color: var(--orange-dark);
 }

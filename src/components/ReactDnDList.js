@@ -10,6 +10,7 @@ class ListDnD extends Component {
   static propTypes = {
     data: PropTypes.arrayOf(
       PropTypes.shape({
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         sortIndex: PropTypes.number.isRequired,
       })

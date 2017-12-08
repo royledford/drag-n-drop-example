@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { ItemTypes } from '../Types/ItemTypes'
 import { findDOMNode } from 'react-dom'
 import { DragSource, DropTarget } from 'react-dnd'
+import HamburgerIcon from './HamburgerIcon'
 import './ListItem.css'
 
 const cardSource = {
@@ -63,13 +64,10 @@ const cardTarget = {
 class ListItemDnD extends Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
-    // dataId: PropTypes.number.isRequired,
-    // dragStart: PropTypes.func.isRequired,
-    // dragEnd: PropTypes.func.isRequired,
-    // className: PropTypes.string,
-
     connectDragSource: PropTypes.func.isRequired,
+    connectDropTarget: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
+    moveCard: PropTypes.func.isRequired,
   }
   static defaultProps = {
     text: 'default value',
@@ -78,19 +76,23 @@ class ListItemDnD extends Component {
 
   render() {
     const { text, isDragging, connectDragSource, connectDropTarget } = this.props
-    const opacity = isDragging ? 0.3 : 1
-    // const newClassName = className === '' ? 'listitem' : `listitem ${className}`
+    const dragClass = isDragging ? 'listitem-over' : ''
+
+    // override the class definition for the hamburger icon
+    const style = { justifyContent: 'space-between', padding: '0 8px', cursor: 'auto' }
+    const hoverStyle = { cursor: 'move' }
+
     return connectDragSource(
       connectDropTarget(
-        <li className="listitem" style={{ opacity: opacity }}>
+        <li className={`listitem ${dragClass}`} style={style}>
           {text}
+          <HamburgerIcon label="Drag me" size={12} color="#fad0a3" hoverStyle={hoverStyle} />
         </li>
       )
     )
   }
 }
 
-// export default DragSource(ItemTypes.CARD, cardSource, collect)(ListItemDnD)
 const dropTargetHOC = DropTarget(ItemTypes.CARD, cardTarget, connect => ({
   connectDropTarget: connect.dropTarget(),
 }))

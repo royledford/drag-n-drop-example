@@ -83,7 +83,7 @@ export default class ListState extends Component {
 
     const listItems = data.map((house, i) => {
       // add highlight to items that are dragged over.
-      let dragClass = i === draggedOverId ? 'listitem-dragging' : ''
+      let dragClass = i === draggedOverId ? 'listitem-over' : ''
 
       return (
         <ListItem
