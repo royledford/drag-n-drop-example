@@ -30,6 +30,12 @@ export default class ListState extends Component {
     this.dragStart = this.dragStart.bind(this)
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    // only update when the item being hover changes,
+    if (nextState.draggedOverId === this.state.draggedOverId) return false
+    return true
+  }
+
   updateState(houses, draggedOverId) {
     this.setState({ draggedOverId: draggedOverId, beingDragged: draggedOverId })
 
@@ -50,14 +56,16 @@ export default class ListState extends Component {
 
   dragOver(e) {
     e.preventDefault()
-    if (e.target.className === 'list') return //ignore dragging of the list container
+
+    // ignore when dragging over the list container
+    if (e.target.className === 'list') return
 
     const over = e.target
     let from = this.state.beingDragged
     let to = Number(over.dataset.id)
     this.setState({ draggedOverId: to })
 
-    // reorder the array with the current position
+    // reorder the array with the current hover position
     let items = this.props.data
     items.splice(to, 0, items.splice(from, 1)[0])
 
@@ -65,8 +73,7 @@ export default class ListState extends Component {
   }
 
   dragEnd() {
-    // We still need to update to clear the extra class
-    // added to items while dragging.
+    // Update state to force removal of the class used for highlighting
     this.updateState(this.props.data, undefined)
   }
 

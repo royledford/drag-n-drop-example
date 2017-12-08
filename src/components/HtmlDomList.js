@@ -54,10 +54,10 @@ export default class ListDOM extends Component {
 
     if (relY > height) {
       this.nodePlacement = 'after'
-      const beforeElement = e.target.nextElementSibling
+      beforeElement = e.target.nextElementSibling
     } else if (relY < height) {
       this.nodePlacement = 'before'
-      const beforeElement = e.target
+      beforeElement = e.target
     }
 
     parent.insertBefore(this.state.placeholder, e.target.nextElementSibling)
