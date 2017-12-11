@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ListItem from './ListItem'
+import HtmlListItem from './HtmlListItem'
 import './List.css'
 
 export default class ListState extends Component {
   static propTypes = {
     data: PropTypes.arrayOf(
       PropTypes.shape({
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         sortIndex: PropTypes.number.isRequired,
       })
     ).isRequired,
+
     dataChanged: PropTypes.func.isRequired,
   }
   static defaultProps = {
@@ -25,13 +27,13 @@ export default class ListState extends Component {
     }
 
     this.updateState = this.updateState.bind(this)
+    this.dragStart = this.dragStart.bind(this)
     this.dragOver = this.dragOver.bind(this)
     this.dragEnd = this.dragEnd.bind(this)
-    this.dragStart = this.dragStart.bind(this)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    // only update when the item being hover changes,
+    // only update when the item being hovered changes,
     if (nextState.draggedOverId === this.state.draggedOverId) return false
     return true
   }
@@ -60,9 +62,8 @@ export default class ListState extends Component {
     // ignore when dragging over the list container
     if (e.target.className === 'list') return
 
-    const over = e.target
     let from = this.state.beingDragged
-    let to = Number(over.dataset.id)
+    let to = Number(e.target.dataset.id)
     this.setState({ draggedOverId: to })
 
     // reorder the array with the current hover position
@@ -81,12 +82,12 @@ export default class ListState extends Component {
     const { data } = this.props
     const { draggedOverId } = this.state
 
-    const listItems = data.map((house, i) => {
-      // add highlight to items that are dragged over.
+    const HtmllistItems = data.map((house, i) => {
+      // highlight the new position
       let dragClass = i === draggedOverId ? 'listitem-over' : ''
 
       return (
-        <ListItem
+        <HtmlListItem
           key={house.id}
           dataId={i}
           className={dragClass}
@@ -99,7 +100,7 @@ export default class ListState extends Component {
 
     return (
       <ul className="list" onDragOver={this.dragOver}>
-        {listItems}
+        {HtmllistItems}
       </ul>
     )
   }

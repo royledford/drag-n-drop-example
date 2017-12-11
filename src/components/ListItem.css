@@ -12,9 +12,6 @@
   cursor: move;
 }
 
-/* The following is used for the state mainpulation version and react-dnd.
-   It is used to highlight the item the cursor is currently over.
-*/
 .listitem-over {
   background-color: var(--orange-dark);
 }

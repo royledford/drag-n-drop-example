@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-
-import HtmlDomList from './HtmlDomList'
-import HtmlStateList from './HtmlStateList'
+import StateView from './StateView'
+import HtmlList from './HtmlList'
 import './DnD.css'
 
 export default class Dnd extends Component {
@@ -55,19 +54,10 @@ export default class Dnd extends Component {
       <div>
         <h3 className="dnd-title">Drag and Drop using HTML5 Api and React Components</h3>
         <div className="dnd">
-          <div>
-            <h4>DOM Manipulation (bad)</h4>
-            <HtmlDomList data={dataState} dataChanged={this.handleDataChanged} />
-          </div>
           <div className="dnd-column">
-            <h4>State Manipulation (good)</h4>
-            <HtmlStateList data={dataState} dataChanged={this.handleDataChanged} />
+            <HtmlList data={dataState} dataChanged={this.handleDataChanged} />
           </div>
-
-          <div>
-            <h4>State for all Lists</h4>
-            <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
-          </div>
+          <StateView state={this.state.dataState} />
         </div>
       </div>
     )

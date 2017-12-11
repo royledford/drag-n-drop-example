@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import HtmlDnD from './components/HtmlDnD'
 import ReactDnD from './components/ReactDnD'
 
-import './styles/vars.css'
-import './styles/base.css'
 import './App.css'
 
 class App extends Component {

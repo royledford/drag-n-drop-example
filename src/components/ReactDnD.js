@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import StateView from './StateView'
 import ReactDnDList from './ReactDnDList'
 import './DnD.css'
 
@@ -7,7 +7,6 @@ export default class ReactDnD extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dataDOM: ['Arryn', 'Frey', 'Greyjoy', 'Lannister', 'Stark', 'Targaryen'],
       dataState: [
         {
           id: 0,
@@ -59,6 +58,7 @@ export default class ReactDnD extends Component {
     cards.forEach((card, i) => (card.sortIndex = i))
 
     this.setState({ dataState: cards })
+    console.log('h')
   }
 
   render() {
@@ -68,13 +68,9 @@ export default class ReactDnD extends Component {
         <h3 className="dnd-title">Drag and Drop using react-dnd</h3>
         <div className="dnd">
           <div className="dnd-column">
-            <h4>React DnD</h4>
             <ReactDnDList data={dataState} moveCard={this.moveCard} />
           </div>
-          <div>
-            <h4>State for all Lists</h4>
-            <pre>{JSON.stringify(this.state.dataState, 0, 2)}</pre>
-          </div>
+          <StateView state={this.state.dataState} />
         </div>
       </div>
     )

@@ -6,16 +6,3 @@
   margin: 0 auto;
   background-color: var(--orange);
 }
-
-/* Thie following are used for the DOM manipulation version */
-li.list-placeholder {
-  height: 40px;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
-  background: var(--orange-light);
-}
-li.list-placeholder:before {
-  content: 'Move here';
-  color: rgb(163, 95, 0);
-}

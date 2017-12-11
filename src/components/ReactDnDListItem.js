@@ -79,14 +79,13 @@ class ListItemDnD extends Component {
     const dragClass = isDragging ? 'listitem-over' : ''
 
     // override the class definition for the hamburger icon
-    const style = { justifyContent: 'space-between', padding: '0 8px', cursor: 'auto' }
-    const hoverStyle = { cursor: 'move' }
+    const style = { justifyContent: 'space-between', padding: '0 8px' }
 
     return connectDragSource(
       connectDropTarget(
         <li className={`listitem ${dragClass}`} style={style}>
           {text}
-          <HamburgerIcon label="Drag me" size={12} color="#fad0a3" hoverStyle={hoverStyle} />
+          <HamburgerIcon label="Drag me" size={12} color="#fad0a3" />
         </li>
       )
     )
