@@ -9,11 +9,49 @@ class App extends Component {
     super(props)
     this.state = {
       page: 'HTML5 DnD',
+      houses: [
+        {
+          id: 0,
+          name: 'Arryn',
+          sortIndex: 0,
+        },
+        {
+          id: 1,
+          name: 'Frey',
+          sortIndex: 1,
+        },
+        {
+          id: 2,
+          name: 'Greyjoy',
+          sortIndex: 2,
+        },
+        {
+          id: 3,
+          name: 'Lannister',
+          sortIndex: 3,
+        },
+        {
+          id: 4,
+          name: 'Stark',
+          sortIndex: 4,
+        },
+        {
+          id: 5,
+          name: 'Targaryen',
+          sortIndex: 5,
+        },
+      ],
     }
+
+    this.handleDataChanged = this.handleDataChanged.bind(this)
   }
 
   handlePageChange = e => {
     this.setState({ page: e.target.innerHTML })
+  }
+
+  handleDataChanged(data) {
+    this.setState({ houses: data })
   }
 
   render() {
@@ -30,8 +68,9 @@ class App extends Component {
       },
     }
 
-    let display = <HtmlDnD />
-    if (page !== 'HTML5 DnD') display = <ReactDnD />
+    let display = <HtmlDnD houses={this.state.houses} handleDataChanged={this.handleDataChanged} />
+    if (page !== 'HTML5 DnD')
+      display = <ReactDnD houses={this.state.houses} handleDataChanged={this.handleDataChanged} />
 
     return (
       <div className="app-wrapper">

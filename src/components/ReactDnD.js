@@ -6,46 +6,12 @@ import './DnD.css'
 export default class ReactDnD extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      dataState: [
-        {
-          id: 0,
-          name: 'Arryn',
-          sortIndex: 0,
-        },
-        {
-          id: 1,
-          name: 'Frey',
-          sortIndex: 1,
-        },
-        {
-          id: 2,
-          name: 'Greyjoy',
-          sortIndex: 2,
-        },
-        {
-          id: 3,
-          name: 'Lannister',
-          sortIndex: 3,
-        },
-        {
-          id: 4,
-          name: 'Stark',
-          sortIndex: 4,
-        },
-        {
-          id: 5,
-          name: 'Targaryen',
-          sortIndex: 5,
-        },
-      ],
-    }
 
     this.moveCard = this.moveCard.bind(this)
   }
 
   moveCard(dragIndex, hoverIndex) {
-    const cards = Object.assign([], this.state.dataState)
+    const cards = Object.assign([], this.props.houses)
     const dragCard = cards[dragIndex]
 
     // remove the dragged card
@@ -56,21 +22,19 @@ export default class ReactDnD extends Component {
 
     // update the sort index
     cards.forEach((card, i) => (card.sortIndex = i))
-
-    this.setState({ dataState: cards })
-    console.log('h')
+    this.props.handleDataChanged(cards)
   }
 
   render() {
-    const { dataState } = this.state
+    const { houses } = this.props
     return (
       <div>
         <h3 className="dnd-title">Drag and Drop using react-dnd</h3>
         <div className="dnd">
           <div className="dnd-column">
-            <ReactDnDList data={dataState} moveCard={this.moveCard} />
+            <ReactDnDList data={houses} moveCard={this.moveCard} />
           </div>
-          <StateView state={this.state.dataState} />
+          <StateView state={houses} />
         </div>
       </div>
     )

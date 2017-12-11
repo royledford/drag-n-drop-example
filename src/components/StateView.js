@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export default class name extends Component {
   static propTypes = {
-    state: PropTypes.object.isRequired,
+    state: PropTypes.array.isRequired,
   }
 
   render() {

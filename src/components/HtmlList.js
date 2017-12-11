@@ -13,7 +13,7 @@ export default class ListState extends Component {
       })
     ).isRequired,
 
-    dataChanged: PropTypes.func.isRequired,
+    handleDataChanged: PropTypes.func.isRequired,
   }
   static defaultProps = {
     data: {},
@@ -47,7 +47,7 @@ export default class ListState extends Component {
     })
 
     // Tell the parent there is a new order
-    this.props.dataChanged(houses)
+    this.props.handleDataChanged(houses)
   }
 
   dragStart(e) {
