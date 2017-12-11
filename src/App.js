@@ -20,10 +20,13 @@ class App extends Component {
     const { page } = this.state
     const styles = {
       current: {
-        color: '#8d4e00',
+        backgroundColor: '#929292',
+        color: 'white',
+        border: '1px solid #929292',
       },
       default: {
-        color: '#fad0a3',
+        color: '#afafaf',
+        border: '1px solid #afafaf',
       },
     }
 

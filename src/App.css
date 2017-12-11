@@ -2,11 +2,9 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
 
-  color: var(--orange-dark);
-  /* background: linear-gradient(to bottom, var(--orange) 0%, var(--red) 100%); */
-  background-color: var(--orange-medium);
+  color: var(--base-dark);
+  background-color: var(--base);
   height: 100%;
   width: 100%;
   padding: 40px 0 0 0;
@@ -14,7 +12,7 @@
 
 .app-header button {
   margin: 0 0 0 25px;
-  background-color: var(--orange);
+  background-color: var(--base);
   padding: 4px 8px;
   border: none;
 }

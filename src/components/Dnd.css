@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-around;
 
-  color: var(--orange-dark);
-  background: linear-gradient(to bottom, var(--orange) 0%, var(--orange-dark) 100%);
+  color: var(--base-dark);
+  background: linear-gradient(to bottom, var(--base) 0%, var(--base-light) 100%);
   height: 100%;
   width: 100%;
   padding: 40px 0 0 0;
@@ -13,6 +13,7 @@
 .dnd h4 {
   margin-bottom: 10px;
   text-align: center;
+  color: var(--black);
 }
 
 .dnd-column {
@@ -23,11 +24,12 @@
 .dnd-title {
   margin: 10px 25px;
   text-align: center;
+  color: var(--black);
 }
 
 pre {
   padding: 4px;
   font-size: 12px;
-  background-color: var(--orange);
-  border: 1px solid var(--orange-dark);
+  background-color: var(--base);
+  border: 1px solid var(--base-dark);
 }

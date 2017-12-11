@@ -5,13 +5,13 @@
   font-size: 14px;
   line-height: 40px;
 
-  color: var(--orange-light);
-  background-color: var(--orange-medium);
-  border: 1px solid var(--orange);
+  color: var(--base);
+  background-color: var(--base-medium);
+  border: 1px solid var(--base);
 
   cursor: move;
 }
 
 .listitem-over {
-  background-color: var(--orange-dark);
+  background-color: var(--base-dark);
 }
