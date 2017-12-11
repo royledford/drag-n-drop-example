@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import StateView from './StateView'
 import ReactDnDList from './ReactDnDList'
 import './DnD.css'
 
 export default class ReactDnD extends Component {
+  static propTypes = {
+    houses: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        sortIndex: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }
+  static defaultProps = {
+    data: {},
+  }
+
   constructor(props) {
     super(props)
 
