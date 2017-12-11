@@ -1,8 +1,31 @@
 {
   "name": "drag-n-drop-example",
+  "description": "Demo of drag and drop in React",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/royledford/drag-n-drop-example"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "drag",
+    "drop",
+    "html5",
+    "draggable",
+    "droppable",
+    "drag-and-drop",
+    "dnd",
+    "javascript",
+    "react-component",
+    "hoc"
+  ],
+  "author": "Roy Ledford <bluesixty@gmail.com> (http://github.com/royledford)",
+  "license": "MIT",
+  "homepage": "https://royledford.github.io/drag-n-drop-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "react": "^16.2.0",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
@@ -10,6 +33,8 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
