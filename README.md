@@ -8,7 +8,7 @@ I wanted to understand the various ways of handling drag and drop in both HTML a
 
 It contains an implementation using the basic HTML5 drap and drop API and the react-dnd library.
 
-You can view the demo at [https://github.com/royledford/drag-n-drop-example]([https://github.com/royledford/drag-n-drop-example]). Click the _HTML5 DnD_ or _React DnD_ button to view the examples.
+You can view the demo at [https://royledford.github.io/drag-n-drop-example]([https://royledford.github.io/drag-n-drop-example]). Click the _HTML5 DnD_ or _React DnD_ button to view the examples.
 
 Both lists are using the same state, so dragging in one version will update both versions.
 
