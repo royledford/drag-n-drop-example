@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { ItemTypes } from '../Types/ItemTypes'
 import { findDOMNode } from 'react-dom'
 import { DragSource, DropTarget } from 'react-dnd'
-import HamburgerIcon from './HamburgerIcon'
 import './ListItem.css'
 
 const cardSource = {
@@ -78,17 +77,7 @@ class ListItemDnD extends Component {
     const { text, isDragging, connectDragSource, connectDropTarget } = this.props
     const dragClass = isDragging ? 'listitem-over' : ''
 
-    // override the class definition for the hamburger icon
-    const style = { justifyContent: 'space-between', padding: '0 8px' }
-
-    return connectDragSource(
-      connectDropTarget(
-        <li className={`listitem ${dragClass}`} style={style}>
-          {text}
-          <HamburgerIcon label="Drag me" size={12} color="#fad0a3" />
-        </li>
-      )
-    )
+    return connectDragSource(connectDropTarget(<li className={`listitem ${dragClass}`}>{text}</li>))
   }
 }
 
