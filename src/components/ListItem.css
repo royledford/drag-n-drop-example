@@ -6,7 +6,7 @@
   line-height: 40px;
 
   color: var(--base);
-  background-color: var(--base-medium);
+  background-color: var(--base-dark);
   border: 1px solid var(--base);
 
   cursor: move;
