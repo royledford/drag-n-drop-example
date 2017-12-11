@@ -81,6 +81,7 @@ class App extends Component {
           <button onClick={this.handlePageChange} style={page === 'React DnD' ? styles.current : styles.default}>
             React DnD
           </button>
+          <a href="https://github.com/royledford/drag-n-drop-example">GitHub</a>
         </div>
         <div>{display}</div>
       </div>

@@ -10,6 +10,15 @@
   padding: 40px 0 0 0;
 }
 
+.app-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-header a {
+  margin-left: auto;
+  margin-right: 20px;
+}
 .app-header button {
   margin: 0 0 0 25px;
   background-color: var(--base);

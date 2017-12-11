@@ -14,35 +14,21 @@ h6 {
 }
 
 a:link {
-  color: white;
+  color: black;
+  font-weight: bold;
   text-decoration: none;
 }
 
 a:visited {
-  color: white;
+  color: black;
+  font-weight: bold;
 }
 
 a:hover {
-  color: #83470f;
+  color: #919191;
   font-weight: bold;
 }
 
 a:active {
-  color: white;
-}
-
-.ratio1-1:before {
-  padding-top: 100%;
-}
-
-.ratio2-1:before {
-  padding-top: 50%;
-}
-
-.ratio4-3:before {
-  padding-top: 75%;
-}
-
-.ratio16-9:before {
-  padding-top: 56.25%;
+  color: #919191;
 }
